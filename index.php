@@ -72,7 +72,7 @@
 <html dir="ltr" lang="en-US">
   <head>
     <title>genetik's gas log</title>
-    <link rel="stylesheet" media="screen" href="default.css" type="text/css" />
+    <link rel="stylesheet" media="screen" href="default.css"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="Author" content="Brian J. Creasy">
   </head>
