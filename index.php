@@ -139,7 +139,7 @@
             <dl>
               <dt class="first">Number of Fill-ups</dt><dd class="first"><?php echo get_num_fillups(); ?></dd>
               <dt>Total Money Spent On Gas</dt><dd><?php echo "$" . round(get_net_price(), 2); ?></dd>
-              <dt>Total Gallons of Gas</dt><dd><?php echo get_net_gas(); ?></dd>
+              <dt>Total Gallons of Gas</dt><dd><?php echo round(get_net_gas(), 2); ?></dd>
               <dt>Average Gas Mileage</dt><dd><?php echo round(get_last_odometer() / get_net_gas(), 2); ?></dd>
               <dt>Average Miles per Tank</dt><dd><?php echo round((get_last_odometer() / get_num_fillups()), 2); ?></dd>
               <dt>Average Price Per Fill-up</dt><dd><? echo "$" . round(get_net_price() / get_num_fillups(), 2); ?></dd>
