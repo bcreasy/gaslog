@@ -95,6 +95,8 @@
             <tbody>
 <?php
   $result = run_query("SELECT * FROM gas_log ORDER BY date ASC");
+  $last_odometer = 0;
+  $last_date = "2004-01-01 00:00:00";
 
   while ($row = $result->fetch_array()) {
     if (($last_date < "2005-01-05 00:00:00") && ("2005-01-05 00:00:00" < $row['date'])) {
@@ -142,10 +144,10 @@
               <dt>Total Gallons of Gas</dt><dd><?php echo round(get_net_gas(), 2); ?></dd>
               <dt>Average Gas Mileage</dt><dd><?php echo round(get_last_odometer() / get_net_gas(), 2); ?></dd>
               <dt>Average Miles per Tank</dt><dd><?php echo round((get_last_odometer() / get_num_fillups()), 2); ?></dd>
-              <dt>Average Price Per Fill-up</dt><dd><? echo "$" . round(get_net_price() / get_num_fillups(), 2); ?></dd>
+              <dt>Average Price Per Fill-up</dt><dd><?php echo "$" . round(get_net_price() / get_num_fillups(), 2); ?></dd>
               <dt>Average Price/Gal.</dt><dd><?php echo "$" . (get_min_price_per_gallon() + get_max_price_per_gallon()) / 2; ?></dd>
-              <dt>Min Price Per Gallon</dt><dd><? echo "$" . get_min_price_per_gallon(); ?></dd>
-              <dt>Max Price Per Gallon</dt><dd><? echo "$" . get_max_price_per_gallon(); ?></dd>
+              <dt>Min Price Per Gallon</dt><dd><?php echo "$" . get_min_price_per_gallon(); ?></dd>
+              <dt>Max Price Per Gallon</dt><dd><?php echo "$" . get_max_price_per_gallon(); ?></dd>
             </dl>
           </div>
         </div>
