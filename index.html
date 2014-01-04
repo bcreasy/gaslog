@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gaslog">
+  <head>
+    <title>genetik's gas log</title>
+    <link rel="stylesheet" media="screen" href="default.css"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Brian J. Creasy">
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>genetik's gas log</h1>
+        <p>This is a study I'm conducting in which I'm going to keep track of the gas I put into my car and how much money is spent on it.</p>
+      </div>
+      <div id="content">
+        <h2>2005 Honda Civic LX (manual trans.)</h2>
+        <p id="car-mileage">EPA Gas Mileage Estimate: 32 City / 38 Highway</p>
+        <p id="car-fueltanksize">Fuel Tank Capacity: 13.2gal</p>
+
+        <div id="data" ng-controller="LogEntries">
+					Search: <input ng-model="query">
+					Sort by:
+					<select ng-model="orderProp">
+						<option value="date">Date</option>
+						<option value="pricepergallon">Price Per Gallon</option>
+					</select>
+
+          <table>
+            <thead>
+              <tr><th class="date">Date</th><th class="brand">Brand</th><th>Price/Gal</th><th>Gallons</th><th>Cost</th><th>Odometer</th><th>Miles/Gal</th></tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="fillup in fillups | filter:query | orderBy:orderProp">
+                <td class="date">{{fillup.date}}</td><td class="brand">{{fillup.brand}}<sup>{{fillup.octane}}</sup></td><td>{{fillup.pricepergallon}}</td><td>{{fillup.volume}}</td><td>{{fillup.totalprice}}</td><td>{{fillup.odometer}}</td><td>{{fillup.milespergallon}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div id="stats" ng-controller="Stats">
+            <dl>
+              <dt class="first">Number of Fill-ups</dt><dd class="first">189</dd>
+              <dt>Total Money Spent On Gas</dt><dd>$5536.58</dd>
+              <dt>Total Gallons of Gas</dt><dd>2038.16</dd>
+              <dt>Average Gas Mileage</dt><dd>31.56</dd>
+              <dt>Average Miles per Tank</dt><dd>340.34</dd>
+              <dt>Average Price Per Fill-up</dt><dd>$29.29</dd>
+              <dt>Average Price/Gal.</dt><dd>$2.879</dd>
+              <dt>Min Price Per Gallon</dt><dd>$1.759</dd>
+              <dt>Max Price Per Gallon</dt><dd>$3.999</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
