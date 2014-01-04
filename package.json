@@ -1,0 +1,9 @@
+{
+  "name": "gaslog",
+  "description": "genetik's gas log",
+  "version": "2.0.0",
+  "private": true,
+  "dependencies": {
+    "nano": "4.2.1"
+  }
+}
