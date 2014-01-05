@@ -5,7 +5,7 @@
     <link rel="stylesheet" media="screen" href="default.css"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="Author" content="Brian J. Creasy">
-    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
     <script src="js/controllers.js"></script>
   </head>
   <body>
@@ -33,7 +33,7 @@
             </thead>
             <tbody>
               <tr ng-repeat="fillup in fillups | filter:query | orderBy:orderProp">
-                <td class="date">{{fillup.date}}</td><td class="brand">{{fillup.brand}}<sup>{{fillup.octane}}</sup></td><td>{{fillup.pricepergallon}}</td><td>{{fillup.volume}}</td><td>{{fillup.pricepergallon * fillup.volume | currency}}</td><td>{{fillup.odometer}}</td><td>{{fillup.milespergallon}}</td>
+                <td class="date">{{fillup.date}}</td><td class="brand">{{fillup.brand}}<sup>{{fillup.octane}}</sup></td><td>{{fillup.pricepergallon | gasprice}}</td><td>{{fillup.volume}}</td><td>{{fillup.pricepergallon * fillup.volume | currency}}</td><td>{{fillup.odometer}}</td><td>{{fillup.milespergallon}}</td>
               </tr>
             </tbody>
           </table>
